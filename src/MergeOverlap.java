@@ -25,6 +25,7 @@ public class MergeOverlap<E> {
 
 	  boolean merge_finished = false;
 	  List list=new ArrayList<E>();
+	  
 
 	  for (it = intervals.begin(); it != intervals.end(); it++){
 	    if ( it->start < another.end && another.start < it->end){
