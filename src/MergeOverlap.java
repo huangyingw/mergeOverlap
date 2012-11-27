@@ -1,20 +1,21 @@
+import java.util.Vector;
+
 
 public class MergeOverlap {
-	#include <iostream>
-	#include <vector>
 
-	using namespace std;
 
-	struct Interval
+	class Interval
 	{
-	public:
-	  Interval(int s, int e) : start(s), end(e) {}
+	  public Interval(int s, int e)  {
+		  start=s;
+		  end=e;
+	  }
 	  int start;
 	  int end;
 	};
 
 
-	vector<Interval> merge_overlaps(vector<Interval> intervals, Interval another)
+	Vector<Interval> merge_overlaps(Vector<Interval> intervals, Interval another)
 	{
 	  vector<Interval> result; 
 	  vector<Interval>::iterator it;
