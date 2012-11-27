@@ -3,18 +3,8 @@ import java.util.List;
 
 public class MergeOverlap {
 
-	class Interval {
-		public Interval(int s, int e) {
-			start = s;
-			end = e;
-		}
-
-		int start;
-		int end;
-	};
-
 	List<Interval> merge_overlaps(List<Interval> intervals, Interval another) {
-		List<Interval> result = new ArrayList<MergeOverlap.Interval>();
+		List<Interval> result = new ArrayList<Interval>();
 
 		boolean merge_finished = false;
 
@@ -61,7 +51,7 @@ public class MergeOverlap {
 	}
 
 	void test1() {
-		List<Interval> intervals = new ArrayList<MergeOverlap.Interval>();
+		List<Interval> intervals = new ArrayList<Interval>();
 		intervals.add(new Interval(1, 4));
 		intervals.add(new Interval(6, 10));
 		intervals.add(new Interval(14, 19));
@@ -72,7 +62,7 @@ public class MergeOverlap {
 	}
 
 	void test2() {
-		List<Interval> intervals = new ArrayList<MergeOverlap.Interval>();
+		List<Interval> intervals = new ArrayList<Interval>();
 		intervals.add(new Interval(1, 5));
 		intervals.add(new Interval(6, 15));
 		intervals.add(new Interval(20, 21));
