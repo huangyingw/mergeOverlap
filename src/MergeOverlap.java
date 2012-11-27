@@ -24,7 +24,7 @@ public class MergeOverlap {
 				another.start = mergeStart(another, inter);
 				another.end = mergeEnd(another, inter);
 			} else {
-				if (inter.start > another.end) {
+				if (LessThanCurrent(another, inter)) {
 					result.add(another);
 					merge_finished = true;
 				}
@@ -34,6 +34,10 @@ public class MergeOverlap {
 		if (!merge_finished)
 			result.add(another);
 		return result;
+	}
+
+	private boolean LessThanCurrent(Interval another, Interval inter) {
+		return inter.start > another.end;
 	}
 
 	private int mergeEnd(Interval another, Interval inter) {
