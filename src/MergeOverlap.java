@@ -20,11 +20,9 @@ public class MergeOverlap {
 
 		for (int it = 0; it < intervals.size(); it++) {
 			Interval inter = intervals.get(it);
-			if (inter.start < another.end && another.start < inter.end) {
-				another.start = (inter.start < another.start) ? inter.start
-						: another.start;
-				another.end = (inter.end < another.end) ? another.end
-						: inter.end;
+			if (isOverLap(another, inter)) {
+				another.start = mergeStart(another, inter);
+				another.end = mergeEnd(another, inter);
 				continue;
 			}
 
@@ -40,6 +38,20 @@ public class MergeOverlap {
 			result.add(another);
 
 		return result;
+	}
+
+	private int mergeEnd(Interval another, Interval inter) {
+		return (inter.end < another.end) ? another.end
+				: inter.end;
+	}
+
+	private int mergeStart(Interval another, Interval inter) {
+		return (inter.start < another.start) ? inter.start
+				: another.start;
+	}
+
+	private boolean isOverLap(Interval another, Interval inter) {
+		return inter.start < another.end && inter.end > another.start;
 	}
 
 	void print_intervals(List<Interval> merged) {
