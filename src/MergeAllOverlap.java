@@ -19,11 +19,12 @@ public class MergeAllOverlap {
 		for (int i = 1; i < size; i++) {
 			Interval cur = intervals.get(i);
 			Interval prev = res.get(res.size() - 1);
-			if (cur.start <= prev.end) {
+			if (cur.start > prev.end) {
+				res.add(cur);
+			} else {
 				if (cur.end > prev.end)
 					prev.end = cur.end;
-			} else
-				res.add(cur);
+			}
 		}
 		return res;
 
