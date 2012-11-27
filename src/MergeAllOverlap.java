@@ -9,15 +9,12 @@ public class MergeAllOverlap {
 		ArrayList<Interval> res = new ArrayList<Interval>();
 
 		int size = intervals.size();
-		if (size < 1) {
+		if (size <= 1) {
 			return res;
 		}
 
 		Collections.sort(intervals, new MyComparator());
 		res.add(intervals.get(0));
-		if (size == 1) {
-			return res;
-		}
 
 		for (int i = 1; i < size; i++) {
 			Interval cur = intervals.get(i);
@@ -26,7 +23,7 @@ public class MergeAllOverlap {
 				if (cur.end > prev.end)
 					prev.end = cur.end;
 			} else
-				res.add(new Interval(cur.start, cur.end));
+				res.add(cur);
 		}
 		return res;
 
@@ -56,6 +53,5 @@ public class MergeAllOverlap {
 		MergeAllOverlap mo = new MergeAllOverlap();
 		mo.test1();
 		// [1,6],[8,10],[15,18].
-
 	}
 }
