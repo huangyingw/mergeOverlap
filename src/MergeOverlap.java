@@ -23,31 +23,25 @@ public class MergeOverlap {
 			if (isOverLap(another, inter)) {
 				another.start = mergeStart(another, inter);
 				another.end = mergeEnd(another, inter);
-				continue;
+			} else {
+				if (inter.start > another.end) {
+					result.add(another);
+					merge_finished = true;
+				}
+				result.add(inter);
 			}
-
-			if (inter.start > another.end) {
-				result.add(another);
-				merge_finished = true;
-			}
-
-			result.add(inter);
 		}
-
 		if (!merge_finished)
 			result.add(another);
-
 		return result;
 	}
 
 	private int mergeEnd(Interval another, Interval inter) {
-		return (inter.end < another.end) ? another.end
-				: inter.end;
+		return (inter.end < another.end) ? another.end : inter.end;
 	}
 
 	private int mergeStart(Interval another, Interval inter) {
-		return (inter.start < another.start) ? inter.start
-				: another.start;
+		return (inter.start < another.start) ? inter.start : another.start;
 	}
 
 	private boolean isOverLap(Interval another, Interval inter) {
@@ -91,5 +85,8 @@ public class MergeOverlap {
 		MergeOverlap mo = new MergeOverlap();
 		mo.test1();
 		mo.test2();
+		// (1, 4) (6, 10) (13, 19)
+		// (1, 5) (6, 33) (35, 40)
+
 	}
 }
