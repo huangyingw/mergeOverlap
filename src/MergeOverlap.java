@@ -56,9 +56,9 @@ public class MergeOverlap<E> {
 	void test1()
 	{
 	  List<Interval> intervals;
-	  intervals.push_back( Interval(1,4) );
-	  intervals.push_back( Interval(6,10) );
-	  intervals.push_back( Interval(14,19) );
+	  intervals.add( Interval(1,4) );
+	  intervals.add( Interval(6,10) );
+	  intervals.add( Interval(14,19) );
 
 	  Interval another(13, 17);
 	  List<Interval> merged = merge_overlaps(intervals, another);
@@ -68,12 +68,12 @@ public class MergeOverlap<E> {
 	void test2()
 	{
 	  List<Interval> intervals;
-	  intervals.push_back( Interval(1,5));
-	  intervals.push_back( Interval(6,15));
-	  intervals.push_back( Interval(20,21));
-	  intervals.push_back( Interval(23,26));
-	  intervals.push_back( Interval(27,30));
-	  intervals.push_back( Interval(35,40));
+	  intervals.add( Interval(1,5));
+	  intervals.add( Interval(6,15));
+	  intervals.add( Interval(20,21));
+	  intervals.add( Interval(23,26));
+	  intervals.add( Interval(27,30));
+	  intervals.add( Interval(35,40));
 	  
 	  Interval another(14,33);
 	  List<Interval> merged = merge_overlaps(intervals, another);
