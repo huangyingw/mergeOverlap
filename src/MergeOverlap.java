@@ -43,10 +43,11 @@ public class MergeOverlap {
 	}
 
 	void print_intervals(List<Interval> merged) {
-		// for (int i = 0; i < merged.size(); i++){
-		// cout << "(" << merged[i].start <<", " << merged[i].end<<") ";
-		// }
-		// cout << endl;
+		for (int i = 0; i < merged.size(); i++) {
+			System.out.print("(" + merged.get(i).start + ", "
+					+ merged.get(i).end + ") ");
+		}
+		System.out.println();
 	}
 
 	void test1() {
