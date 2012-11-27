@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 
-public class MergeOverlap {
+public class MergeOverlap<E> {
 
 
 	class Interval
@@ -22,6 +24,7 @@ public class MergeOverlap {
 	  Iterator<Interval> it=intervals.iterator();
 
 	  boolean merge_finished = false;
+	  List list=new ArrayList<E>();
 
 	  for (it = intervals.begin(); it != intervals.end(); it++){
 	    if ( it->start < another.end && another.start < it->end){
