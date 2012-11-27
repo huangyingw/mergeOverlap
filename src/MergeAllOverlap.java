@@ -16,21 +16,10 @@ return [1,6],[8,10],[15,18].
  */
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 
 public class MergeAllOverlap {
-	class MyComparator implements Comparator<Interval> {
-		@Override
-		public int compare(Interval x, Interval y) {
-			if (x.start < y.start)
-				return -1;
-			else if (x.start > y.start)
-				return 1;
-			return 0;
-		}
-	}
-
-	public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+	public ArrayList<Interval> merge(List<Interval> intervals) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
 		ArrayList<Interval> res = new ArrayList<Interval>();
@@ -56,6 +45,33 @@ public class MergeAllOverlap {
 				res.add(new Interval(cur.start, cur.end));
 		}
 		return res;
+
+	}
+
+	void test1() {
+		List<Interval> intervals = new ArrayList<Interval>();
+
+		intervals.add(new Interval(1, 3));
+		intervals.add(new Interval(2, 6));
+		intervals.add(new Interval(8, 10));
+		intervals.add(new Interval(15, 18));
+
+		List<Interval> merged = merge(intervals);
+		print_intervals(merged);
+	}
+
+	void print_intervals(List<Interval> merged) {
+		for (int i = 0; i < merged.size(); i++) {
+			System.out.print("(" + merged.get(i).start + ", "
+					+ merged.get(i).end + ") ");
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		MergeAllOverlap mo = new MergeAllOverlap();
+		mo.test1();
+		// [1,6],[8,10],[15,18].
 
 	}
 }
