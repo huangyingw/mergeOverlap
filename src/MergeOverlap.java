@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.List;
 
 
@@ -23,7 +20,6 @@ public class MergeOverlap<E> {
 	  List<Interval> result; 
 
 	  boolean merge_finished = false;
-	  List list=new ArrayList<E>();
 	  
 	  
 	  for(int it=0;it<intervals.size();it++){
@@ -35,14 +31,14 @@ public class MergeOverlap<E> {
 			    }
 			                                           
 			    if (inter.start > another.end){  
-			      result.push_back(another); 
+			      result.add(another); 
 			      merge_finished = true;
 			    }
 
-			    result.push_back(*inter);
+			    result.add(inter);
 	  }
 
-	  if (! merge_finished) result.push_back(another);
+	  if (! merge_finished) result.add(another);
 
 	  return result;
 	}
