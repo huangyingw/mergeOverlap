@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MergeAllOverlap {
-	public ArrayList<Interval> merge(List<Interval> intervals) {
+	public ArrayList<Interval> MergeAll(List<Interval> intervals) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
 		ArrayList<Interval> res = new ArrayList<Interval>();
@@ -40,7 +40,7 @@ public class MergeAllOverlap {
 		intervals.add(new Interval(8, 10));
 		intervals.add(new Interval(15, 18));
 
-		List<Interval> merged = merge(intervals);
+		List<Interval> merged = MergeAll(intervals);
 		print_intervals(merged);
 	}
 
