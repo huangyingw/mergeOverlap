@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Vector;
 
 
@@ -17,10 +18,10 @@ public class MergeOverlap {
 
 	Vector<Interval> merge_overlaps(Vector<Interval> intervals, Interval another)
 	{
-	  vector<Interval> result; 
-	  vector<Interval>::iterator it;
+	  Vector<Interval> result; 
+	  Iterator<Interval> it=intervals.iterator();
 
-	  bool merge_finished = false;
+	  boolean merge_finished = false;
 
 	  for (it = intervals.begin(); it != intervals.end(); it++){
 	    if ( it->start < another.end && another.start < it->end){
@@ -43,7 +44,7 @@ public class MergeOverlap {
 	}
 
 
-	void print_intervals(vector<Interval> & merged)
+	void print_intervals(Vector<Interval> & merged)
 	{
 	  for (int i = 0; i < merged.size(); i++){
 	    cout << "(" << merged[i].start <<", " << merged[i].end<<") ";
@@ -54,19 +55,19 @@ public class MergeOverlap {
 
 	void test1()
 	{
-	  vector<Interval> intervals;
+	  Vector<Interval> intervals;
 	  intervals.push_back( Interval(1,4) );
 	  intervals.push_back( Interval(6,10) );
 	  intervals.push_back( Interval(14,19) );
 
 	  Interval another(13, 17);
-	  vector<Interval> merged = merge_overlaps(intervals, another);
+	  Vector<Interval> merged = merge_overlaps(intervals, another);
 	  print_intervals(merged);
 	}
 
 	void test2()
 	{
-	  vector<Interval> intervals;
+	  Vector<Interval> intervals;
 	  intervals.push_back( Interval(1,5));
 	  intervals.push_back( Interval(6,15));
 	  intervals.push_back( Interval(20,21));
@@ -75,7 +76,7 @@ public class MergeOverlap {
 	  intervals.push_back( Interval(35,40));
 	  
 	  Interval another(14,33);
-	  vector<Interval> merged = merge_overlaps(intervals, another);
+	  Vector<Interval> merged = merge_overlaps(intervals, another);
 	  print_intervals(merged);
 	}
 
