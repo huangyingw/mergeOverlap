@@ -9,16 +9,16 @@ public class MergeOverlap {
 		boolean merge_finished = false;
 
 		for (int it = 0; it < intervals.size(); it++) {
-			Interval inter = intervals.get(it);
-			if (isOverLap(another, inter)) {
-				another.start = mergeStart(another, inter);
-				another.end = mergeEnd(another, inter);
+			Interval nav = intervals.get(it);
+			if (isOverLap(another, nav)) {
+				another.start = mergeStart(another, nav);
+				another.end = mergeEnd(another, nav);
 			} else {
-				if (LessThanCurrent(another, inter)) {
+				if (LessThanCurrent(another, nav)) {
 					result.add(another);
 					merge_finished = true;
 				}
-				result.add(inter);
+				result.add(nav);
 			}
 		}
 		if (!merge_finished)
